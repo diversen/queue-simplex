@@ -15,31 +15,32 @@ Example of a table can be found on <https://github.com/diversen/queue-simplex/bl
 Add a row to queue:
 
 ~~~php
-// $dbh is a PDO database handle
-// e.g: 
-// $dbh = new PDO('mysql:dbname=testinfo;host=localhost;charset=utf8', 'user', 'password');
+include_once "vendor/autoload.php";
+
+use diversen\queue;
+
+$dbh = new PDO('mysql:dbname=testinfo;host=localhost;charset=utf8', 'user', '');
 $q = new queue($dbh);
 
-// queue name - just like a namespace
-$queue = 'main_queue';
-$unique = "notify_user"; // You can also add e.g. a user_id or something more unique
+// Just add some unique ids
+$q->addOnce('test', uniqid());
+$q->addOnce('test', uniqid());
+$q->addOnce('test', uniqid());
 
-// Add a job once, and only once
-$res = $q->addOnce('main_queue', $unique);
+// Get all rows that is not done
+$rows = $q->getQueueRows('test');
 
-// At a later time, e.g. in a cron job get the queue rows that is not done: 
-$q = new queue($dbh);
-$rows = $q->getQueueRows($queue, $unique);
-if (!empty($rows)) {
-    // Do something with the info from the rows
-    // This will set all rows as done
-    // $q->setQueueRowsDone($rows);
-    // Or iterate over the rows while doing something
-    // This way you can use PDO begin, commit and rollback 
-    foreach($rows as $row) {
-         // do a job based on the queue row
-         $q->setQueueRowDone($row);
-    }
-} 
+foreach($rows as $row) {
+    // You will properbly do something more useful than echo the row id
+    // in real life .)
+    echo $row['id'] . PHP_EOL;
+    $q->setQueueRowDone($row);
+}
+
+// Should all be done!
+$rows = $q->getQueueRows('test');
+
+// Should yields an empty array
+print_r($rows);
 
 ~~~
