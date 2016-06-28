@@ -2,7 +2,9 @@
 
 A simple queue system for PHP based on one of the following databases: 
 
-It should support SQLite, MariaDB, PostgreSQL (and maybe Cubrid)
+It should support MySQL, SQLite, MariaDB, PostgreSQL (and maybe Cubrid)
+
+Tested with MySQL
 
 # Install
 
