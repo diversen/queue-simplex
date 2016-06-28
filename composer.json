@@ -15,8 +15,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "diversen/simple-php-classes": "~1.4",
-	"diversen/redbean-composer"
+        "diversen/simple-php-classes": "^1.4",
+	"diversen/redbean-composer": "^4.3"
     },
     "autoload": {
         "psr-4": {
