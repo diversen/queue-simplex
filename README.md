@@ -24,11 +24,9 @@ $unique = "notify_user"; // You can also add e.g. a user_id or something more un
 
 // Add a job once, and only once
 $res = $q->addOnce('main_queue', $unique);
-~~~
 
-At a later time, e.g. in a cron job get the queue rows: 
+// At a later time, e.g. in a cron job get the queue rows: 
 
-~~~php
 $q = new queue($dbh);
 $rows = $q->getQueueRows($queue, $unique, $done = 0);
 if (!empty($rows)) {
