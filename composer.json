@@ -1,0 +1,31 @@
+{
+    "name": "diversen/queue-simplex",
+    "type": "library",
+    "description": "Easy solution for adding jobs to queue (using a database table).",
+    "homepage": "https://github.com/diversen/queue-simplex",
+    "keywords": ["queue", "database", "simple"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dennis Iversen",
+            "email": "dennis.iversen@gmail.com",
+            "homepage": "http://www.coscms.org",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "diversen/simple-php-classes": "~1.4",
+	"diversen/redbean-composer"
+    },
+    "autoload": {
+        "psr-4": {
+            "diversen\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
