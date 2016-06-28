@@ -36,7 +36,7 @@ if (!empty($rows)) {
     // This way you can use PDO begin, commit and rollback 
     foreach($rows as $row) {
          // do a job based on the queue row
-         setQueueRowDone($row);
+         $q->setQueueRowDone($row);
     }
 } 
 
