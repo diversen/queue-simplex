@@ -25,10 +25,9 @@ $unique = "notify_user"; // You can also add e.g. a user_id or something more un
 // Add a job once, and only once
 $res = $q->addOnce('main_queue', $unique);
 
-// At a later time, e.g. in a cron job get the queue rows: 
-
+// At a later time, e.g. in a cron job get the queue rows that is not done: 
 $q = new queue($dbh);
-$rows = $q->getQueueRows($queue, $unique, $done = 0);
+$rows = $q->getQueueRows($queue, $unique);
 if (!empty($rows)) {
     // Do something with the info from the rows
     // This will set all rows as done
