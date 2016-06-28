@@ -10,8 +10,8 @@ Tested with MySQL
 
     composer require diversen/queue-simplex
 
-Example of a table can be found on <https://github.com/diversen/queue-simplex/blob/master/mysql.sql>
+Example of a MySQL table can be found on <https://github.com/diversen/queue-simplex/blob/master/mysql.sql>
 
-Add a row to queue:
+(It should just contain the fields `id`, `name`, `uniqueid` and `done` - as in the above MySQL table)
 
-Example with php see: <https://github.com/diversen/queue-simplex/blob/master/test.php>
+Code example: <https://github.com/diversen/queue-simplex/blob/master/test.php>
