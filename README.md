@@ -19,7 +19,7 @@ Add a row to queue:
 $q = new queue($dbh);
 
 // queue name - just like a namespace
-$queue = 'main_queue;
+$queue = 'main_queue';
 $unique = "notify_user"; // You can also add e.g. a user_id or something more unique
 
 // Add a job once, and only once
