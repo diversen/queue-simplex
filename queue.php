@@ -63,16 +63,20 @@ class queue {
 
     
     /**
-     * Get all jobs in a queue, which needs to be executed
+     * Get all jobs in a queue, which needs to be executed. Only name
+     * if required
      * @param string $name
-     * @param string $uniqueid
-     * @param string $done null | 1 | 0
+     * @param mixed $uniqueid if null then only the above param 'name' will be used
+     * @param mixed $done null | 1 | 0
      * @return array $rows
      */
-    public function getQueueRows ($name, $uniqueid, $done = null) {
-        $rows = q::select($this->queue)->
-                filter('name =', $name)->condition('AND')->
-                filter('uniqueid =', $uniqueid);
+    public function getQueueRows ($name, $uniqueid = null, $done = 0) {
+        q::select($this->queue)->filter('name =', $name);
+        
+        if (!is_null($uniqueid)) {
+            q::condition('AND');
+            q::filter('uniqueid =', $uniqueid);
+        }
         
         if (is_int($done)) {
             q::condition('AND');
@@ -85,8 +89,8 @@ class queue {
     /**
      * Get single job in a queue, which needs to be executed
      * @param string $name
-     * @param string $uniqueid
-     * @param string $done
+     * @param mixed $uniqueid
+     * @param mixed $done
      * @return type
      */
     public function getQueueSingleRow ($name, $uniqueid, $done = null) {
@@ -105,7 +109,7 @@ class queue {
      */
     public function setQueueRowDone($row) {
         
-        $bean = R::findOne($this->queue, " name = ? and uniqueid = ? ", [$row['name'], $row['uniqueid']]);
+        $bean = R::findOne($this->queue, " id = ? ", [ $row['id'] ]);
         $bean->done = 1;
         return R::store($bean);
     }

@@ -10,24 +10,25 @@ Tested with MySQL
 
     composer require diversen/queue-simplex
 
-Example of a table can be found in <mysql.sql>
+Example of a table can be found on <https://github.com/diversen/queue-simplex/blob/master/mysql.sql>
 
 Add a row to queue:
 
 ~~~php
 // $dbh is a PDO database handle
 
-$unique = "usage_notify"; // You can also add e.g. a user_id or something more unique
+$queue = 'main_queue';
+$unique = "notify_user"; // You can also add e.g. a user_id or something more unique
 
 // Add a job once, and only once
-$res = $q->addOnce('usage', $unique);
+$res = $q->addOnce('main_queue', $unique);
 ~~~
 
 At a later time, e.g. in a cron job get the queue rows: 
 
 ~~~php
 $q = new queue($dbh);
-$rows = $q->getQueueRows('usage', $unique, $done = 0);
+$rows = $q->getQueueRows($queue, $unique, $done = 0);
 if (!empty($rows)) {
     // Do something with the info from the rows
     // This will set all rows as done
