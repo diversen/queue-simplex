@@ -6,6 +6,7 @@ include_once "vendor/diversen/redbean-composer/rb.php";
 
 use R;
 use diversen\db\q;
+use diversen\db\connect;
 
 /**
  * Queue class where you can 
@@ -25,8 +26,9 @@ class queue {
      * Connect to database with a connection
      * @param resource $dsn
      */
-    public function __construct ($dsn) {
-        R::setup($dsn);
+    public function __construct ($dbh) {
+        R::setup($dbh);
+	connect::$dbh = $dbh;
     }
     
     /**
