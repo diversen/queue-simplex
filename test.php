@@ -27,3 +27,24 @@ $rows = $q->getQueueRows('test');
 
 // Should yields an empty array
 print_r($rows);
+
+// A single job with known unique id
+$q->addOnce('test', 'this is a uniq id - but easy to remember');
+
+// You will only be able to use this job once
+$rows = $q->getQueueRows('test', 'this is a uniq id - but easy to remember');
+foreach($rows as $row) {
+    echo $row['id'] . PHP_EOL;
+    $q->setQueueRowDone($row);
+}
+
+// Should all be done!
+$rows = $q->getQueueRows('test', 'this is a uniq id - but easy to remember');
+
+// Should yields an empty array
+print_r($rows);
+
+// You can only add a job with the same uniqueid once - so this will not create
+// Another job
+$q->addOnce('test', 'this is a uniq id - but easy to remember');
+
