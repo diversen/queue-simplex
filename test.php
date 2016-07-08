@@ -18,6 +18,8 @@ $rows = $q->getQueueRows('test');
 foreach($rows as $row) {
     // You will properbly do something more useful than echo the row id
     // in real life .)
+    // You can also use PDO transactions around your job and the queue 
+    // job
     echo $row['id'] . PHP_EOL;
     $q->setQueueRowDone($row);
 }
