@@ -28,6 +28,7 @@ class queue {
      */
     public function __construct ($dbh) {
         R::setup($dbh);
+        R::freeze( TRUE );
 	connect::$dbh = $dbh;
     }
     
