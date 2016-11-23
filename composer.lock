@@ -1,0 +1,134 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "524ac415f796547ac2934eecfefebdde",
+    "content-hash": "9fb701ed435af9a1e00da7f30b2abd22",
+    "packages": [
+        {
+            "name": "diversen/redbean-composer",
+            "version": "4.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/diversen/redbean-composer.git",
+                "reference": "96b6de8f547448da0e4317fca1ed686e8f067ab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/diversen/redbean-composer/zipball/96b6de8f547448da0e4317fca1ed686e8f067ab8",
+                "reference": "96b6de8f547448da0e4317fca1ed686e8f067ab8",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "DUAL Licensed New BSD and GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "gabordemooij",
+                    "homepage": "https://github.com/gabordemooij/redbean",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Latest Redbeanphp as a simgle file ",
+            "homepage": "http://github.com/diversen/redbean-composer",
+            "keywords": [
+                "composer",
+                "orm",
+                "redbean"
+            ],
+            "time": "2016-06-16 12:56:33"
+        },
+        {
+            "name": "diversen/simple-php-classes",
+            "version": "v1.4.130",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/diversen/simple-php-classes.git",
+                "reference": "5122d7ec412d400f58b53773e9aa418e9044d57f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/diversen/simple-php-classes/zipball/5122d7ec412d400f58b53773e9aa418e9044d57f",
+                "reference": "5122d7ec412d400f58b53773e9aa418e9044d57f",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "diversen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A collection of simple classes",
+            "homepage": "http://github.com/diversen/simple-php-classes",
+            "keywords": [
+                "framework",
+                "lib"
+            ],
+            "time": "2016-11-23 21:25:31"
+        },
+        {
+            "name": "gabordemooij/redbean",
+            "version": "v4.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "1c7ec69850e9f7966ff7feb87b01d8f43a9753d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/1c7ec69850e9f7966ff7feb87b01d8f43a9753d3",
+                "reference": "1c7ec69850e9f7966ff7feb87b01d8f43a9753d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RedBeanPHP\\": "RedBeanPHP"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "New BSD and GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabor@redbeanphp.com",
+                    "homepage": "http://redbeanphp.com"
+                }
+            ],
+            "description": "RedBeanPHP ORM",
+            "homepage": "http://redbeanphp.com/",
+            "keywords": [
+                "orm"
+            ],
+            "time": "2016-10-03 21:25:17"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}

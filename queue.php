@@ -2,9 +2,7 @@
 
 namespace diversen;
 
-include_once "vendor/diversen/redbean-composer/rb.php";
-
-use R;
+use RedbeanPHP\R;
 use diversen\db\q;
 use diversen\db\connect;
 
