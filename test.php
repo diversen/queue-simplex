@@ -48,14 +48,11 @@ foreach($rows as $row) {
     $q->setQueueRowDone($row);
 }
 
-// Should all be done!
+// You can only add a job with the same uniqueid once - so this will not create
+// Another job
 $rows = $q->getQueueRows('test', 'this is a uniq id - but easy to remember');
 
 // Should yields an empty array
 echo "Jobs should be done - now an empty array\n";
 print_r($rows);
-
-// You can only add a job with the same uniqueid once - so this will not create
-// Another job
-$q->addOnce('test', 'this is a uniq id - but easy to remember');
 
