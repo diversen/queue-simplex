@@ -1,7 +1,7 @@
 {
     "name": "diversen/queue-simplex",
     "type": "library",
-    "description": "Simple PHP solution for adding jobs to a queue (using a database table).",
+    "description": "Most simple PHP solution for adding jobs to a queue (using a database table).",
     "homepage": "https://github.com/diversen/queue-simplex",
     "keywords": ["queue", "database", "simple"],
     "license": "MIT",
