@@ -2,7 +2,7 @@
 
 namespace diversen;
 
-use RedbeanPHP\R;
+use RedBeanPHP\R;
 use diversen\db\q;
 use diversen\db\connect;
 
@@ -19,15 +19,20 @@ class queue {
      * @var string $queue
      */
     public $queue = 'systemqueue';
-    
+
+
     /**
      * Connect to database with a connection
      * @param resource $dsn
      */
-    public function __construct ($dbh) {
+    public function __construct ($dbh, $freeze = true) {
         R::setup($dbh);
-        R::freeze( TRUE );
-	connect::$dbh = $dbh;
+        R::freeze( $freeze );
+	    connect::$dbh = $dbh;
+    }
+
+    public function createTable (){
+        $this->create('dummy', 'dummy');
     }
     
     /**

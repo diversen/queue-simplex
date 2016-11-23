@@ -4,8 +4,15 @@ include_once "vendor/autoload.php";
 
 use diversen\queue;
 
-$dbh = new PDO('mysql:dbname=testinfo;host=localhost;charset=utf8', 'user', '');
-$q = new queue($dbh);
+//$dbh = new PDO('mysql:dbname=testinfo;host=localhost;charset=utf8', 'user', '');
+$dbh = new PDO( 'sqlite:/tmp/sqlite.db' );
+
+// 2. param will make database fluid - tables will be auto-generated.
+$q = new queue($dbh, false);
+
+// Add dummy job - in order to create database table
+// Namespace dummy and jobid = dummy
+$q->createTable();
 
 // Just add some unique ids
 $q->addOnce('test', uniqid());
@@ -28,6 +35,7 @@ foreach($rows as $row) {
 $rows = $q->getQueueRows('test');
 
 // Should yields an empty array
+echo "Jobs should be done - now an empty array\n";
 print_r($rows);
 
 // A single job with known unique id
@@ -44,6 +52,7 @@ foreach($rows as $row) {
 $rows = $q->getQueueRows('test', 'this is a uniq id - but easy to remember');
 
 // Should yields an empty array
+echo "Jobs should be done - now an empty array\n";
 print_r($rows);
 
 // You can only add a job with the same uniqueid once - so this will not create
