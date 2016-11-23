@@ -14,9 +14,7 @@ The jobs table is auto-generated using RedBeansPHP.
 
 Code example: <https://github.com/diversen/queue-simplex/blob/master/test.php>
 
-# MySQL table example
+# MySQL table with index
 
 Example of a MySQL table can be found on <https://github.com/diversen/queue-simplex/blob/master/mysql.sql>
-
-(It should just contain the fields `id`, `name`, `uniqueid` and `done` - as in the above MySQL table)
 
